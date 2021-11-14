@@ -23,13 +23,6 @@ namespace JeanCarlosCortes
             formulario.Show();
         }
 
-        private void Estadosbutton_Click(object sender, EventArgs e)
-        {
-            Estados formulario = new Estados();
-            this.Hide();
-            formulario.Show();
-        }
-
         private void Ticketbutton_Click(object sender, EventArgs e)
         {
             Ticket_RPantalla formulario = new Ticket_RPantalla();
@@ -37,11 +30,9 @@ namespace JeanCarlosCortes
             formulario.Show();
         }
 
-        private void Detallesbutton_Click(object sender, EventArgs e)
+        private void Salirbutton_Click(object sender, EventArgs e)
         {
-            Detalles formulario = new Detalles();
-            this.Hide();
-            formulario.Show();
+            Application.Exit();
         }
     }
 }

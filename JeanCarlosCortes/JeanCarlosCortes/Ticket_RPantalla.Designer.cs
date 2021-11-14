@@ -29,7 +29,8 @@ namespace JeanCarlosCortes
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.components = new System.ComponentModel.Container();
+            this.RPantalladataGridView = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,7 +45,7 @@ namespace JeanCarlosCortes
             this.CantidadtextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.MarcatextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.SOcomboBox = new System.Windows.Forms.ComboBox();
@@ -59,32 +60,36 @@ namespace JeanCarlosCortes
             this.label5 = new System.Windows.Forms.Label();
             this.Mostrarbutton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.Nuevobutton = new System.Windows.Forms.Button();
             this.Salirbutton = new System.Windows.Forms.Button();
             this.Menubutton = new System.Windows.Forms.Button();
-            this.Detallesbutton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.RPantalladataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView
+            // RPantalladataGridView
             // 
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RPantalladataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RPantalladataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column6,
             this.Column2,
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dataGridView.Location = new System.Drawing.Point(293, 205);
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.RowHeadersWidth = 51;
-            this.dataGridView.RowTemplate.Height = 24;
-            this.dataGridView.Size = new System.Drawing.Size(779, 220);
-            this.dataGridView.TabIndex = 0;
+            this.RPantalladataGridView.Location = new System.Drawing.Point(17, 21);
+            this.RPantalladataGridView.Name = "RPantalladataGridView";
+            this.RPantalladataGridView.RowHeadersWidth = 51;
+            this.RPantalladataGridView.RowTemplate.Height = 24;
+            this.RPantalladataGridView.Size = new System.Drawing.Size(1067, 248);
+            this.RPantalladataGridView.TabIndex = 0;
             // 
             // Column1
             // 
@@ -168,7 +173,7 @@ namespace JeanCarlosCortes
             this.groupBox2.Controls.Add(this.CantidadtextBox);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.MarcatextBox);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.SOcomboBox);
@@ -203,12 +208,12 @@ namespace JeanCarlosCortes
             this.label9.TabIndex = 6;
             this.label9.Text = "Cantidad";
             // 
-            // textBox3
+            // MarcatextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(147, 67);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(172, 22);
-            this.textBox3.TabIndex = 5;
+            this.MarcatextBox.Location = new System.Drawing.Point(147, 67);
+            this.MarcatextBox.Name = "MarcatextBox";
+            this.MarcatextBox.Size = new System.Drawing.Size(172, 22);
+            this.MarcatextBox.TabIndex = 5;
             // 
             // label4
             // 
@@ -334,7 +339,7 @@ namespace JeanCarlosCortes
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.Detallesbutton);
+            this.groupBox4.Controls.Add(this.Nuevobutton);
             this.groupBox4.Controls.Add(this.Salirbutton);
             this.groupBox4.Controls.Add(this.Menubutton);
             this.groupBox4.Controls.Add(this.Mostrarbutton);
@@ -343,6 +348,16 @@ namespace JeanCarlosCortes
             this.groupBox4.Size = new System.Drawing.Size(354, 121);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
+            // 
+            // Nuevobutton
+            // 
+            this.Nuevobutton.Location = new System.Drawing.Point(98, 70);
+            this.Nuevobutton.Name = "Nuevobutton";
+            this.Nuevobutton.Size = new System.Drawing.Size(100, 36);
+            this.Nuevobutton.TabIndex = 9;
+            this.Nuevobutton.Text = "Nuevo";
+            this.Nuevobutton.UseVisualStyleBackColor = true;
+            this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
             // 
             // Salirbutton
             // 
@@ -364,29 +379,33 @@ namespace JeanCarlosCortes
             this.Menubutton.UseVisualStyleBackColor = true;
             this.Menubutton.Click += new System.EventHandler(this.Menubutton_Click);
             // 
-            // Detallesbutton
+            // groupBox5
             // 
-            this.Detallesbutton.Location = new System.Drawing.Point(130, 79);
-            this.Detallesbutton.Name = "Detallesbutton";
-            this.Detallesbutton.Size = new System.Drawing.Size(100, 36);
-            this.Detallesbutton.TabIndex = 8;
-            this.Detallesbutton.Text = "Detalles";
-            this.Detallesbutton.UseVisualStyleBackColor = true;
-            this.Detallesbutton.Click += new System.EventHandler(this.Detallesbutton_Click);
+            this.groupBox5.Controls.Add(this.RPantalladataGridView);
+            this.groupBox5.Location = new System.Drawing.Point(281, 156);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(1090, 288);
+            this.groupBox5.TabIndex = 6;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Detalles";
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // Ticket_RPantalla
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 449);
+            this.ClientSize = new System.Drawing.Size(1383, 449);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView);
             this.Name = "Ticket_RPantalla";
-            this.Text = "Tickets";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.Text = "Tickets_RPantalla";
+            ((System.ComponentModel.ISupportInitialize)(this.RPantalladataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -394,18 +413,19 @@ namespace JeanCarlosCortes
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.GroupBox groupBox1;
         public System.Windows.Forms.TextBox NombretextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox MarcatextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.ComboBox SOcomboBox;
@@ -428,9 +448,12 @@ namespace JeanCarlosCortes
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Button Salirbutton;
-        private System.Windows.Forms.Button Detallesbutton;
         public System.Windows.Forms.TextBox TotaltextBox;
         public System.Windows.Forms.TextBox SubtotaltextBox;
         public System.Windows.Forms.TextBox ImpuestotextBox;
+        public System.Windows.Forms.DataGridView RPantalladataGridView;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button Nuevobutton;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

@@ -46,20 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Conexion DB.cs" />
+    <Compile Include="Conexion_DB.cs" />
     <Compile Include="dataGridView\Rows.cs" />
-    <Compile Include="Detalles.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Detalles.Designer.cs">
-      <DependentUpon>Detalles.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Estados.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Estados.Designer.cs">
-      <DependentUpon>Estados.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,9 +94,6 @@
       <DependentUpon>Tipos.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuarios.cs" />
-    <EmbeddedResource Include="Detalles.resx">
-      <DependentUpon>Detalles.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

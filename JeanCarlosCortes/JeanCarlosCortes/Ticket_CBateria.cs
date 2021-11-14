@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JeanCarlosCortes
@@ -48,21 +41,36 @@ namespace JeanCarlosCortes
 
             if (inserto)
             {
-                MessageBox.Show("Producto registrado");
-                NombretextBox.Text = "";
-                SOcomboBox.Text = "";
-                CantidadtextBox.Clear();
-                SubtotaltextBox.Clear();
-                ImpuestotextBox.Clear();
-                TotaltextBox.Clear();
-                PreciotextBox.Text = string.Empty;
-                tickets = null;
+                MessageBox.Show("Ticket registrado");
             }
             else
             {
-                MessageBox.Show("No se registro el producto");
+                MessageBox.Show("No se registro el ticket");
             }
-
+            if (NombretextBox.Text == "")
+            {
+                errorProvider.SetError(NombretextBox, "Ingrese el nombre");
+                NombretextBox.Focus();
+                return;
+            }
+            if (SOcomboBox.Text == "")
+            {
+                errorProvider.SetError(SOcomboBox, "Ingrese el sistema operativo");
+                SOcomboBox.Focus();
+                return;
+            }
+            if (MarcatextBox.Text == "")
+            {
+                errorProvider.SetError(MarcatextBox, "Ingrese la marca de su computadora");
+                MarcatextBox.Focus();
+                return;
+            }
+            if (CantidadtextBox.Text == "")
+            {
+                errorProvider.SetError(CantidadtextBox, "Ingrese la cantidad");
+                CantidadtextBox.Focus();
+                return;
+            }
         }
         private void Salirbutton_Click(object sender, EventArgs e)
         {
@@ -74,6 +82,18 @@ namespace JeanCarlosCortes
             Menu formulario = new Menu();
             this.Hide();
             formulario.Show();
+        }
+
+        private void Nuevobutton_Click(object sender, EventArgs e)
+        {
+            NombretextBox.Text = "";
+            SOcomboBox.Text = "";
+            MarcatextBox.Text = "";
+            CantidadtextBox.Clear();
+            PreciotextBox.Clear();
+            SubtotaltextBox.Clear();
+            ImpuestotextBox.Clear();
+            TotaltextBox.Clear();
         }
     }
 }

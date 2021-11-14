@@ -25,9 +25,9 @@ namespace JeanCarlosCortes
             SubtotaltextBox.Text = Convert.ToString(Subtotal);
             ImpuestotextBox.Text = Convert.ToString(Impuesto);
             TotaltextBox.Text = Convert.ToString(Total);
-            dataGridView.Rows.Add(NombretextBox.Text, "Reparación de panatalla", SOcomboBox.Text, SubtotaltextBox.Text, 
+            RPantalladataGridView.Rows.Add(NombretextBox.Text, "Reparación de panatalla", SOcomboBox.Text, SubtotaltextBox.Text, 
                                     ImpuestotextBox.Text, TotaltextBox.Text);
-           
+
             tickets.Nombre = NombretextBox.Text;
             tickets.Tipo_servicio = "Reparacion de pantalla";
             tickets.Sistema_operativo = SOcomboBox.Text;
@@ -41,21 +41,36 @@ namespace JeanCarlosCortes
 
             if (inserto)
             {
-                MessageBox.Show("Producto registrado");
-                NombretextBox.Text = "";
-                SOcomboBox.Text = "";
-                CantidadtextBox.Clear();
-                SubtotaltextBox.Clear();
-                ImpuestotextBox.Clear();
-                TotaltextBox.Clear();
-                PreciotextBox.Text = string.Empty;
-                tickets = null;
+                MessageBox.Show("ticket registrado");
             }
             else
             {
-                MessageBox.Show("No se registro el producto");
+                MessageBox.Show("No se registro el ticket");
             }
-
+            if (NombretextBox.Text == "")
+            {
+                errorProvider.SetError(NombretextBox, "Ingrese el nombre");
+                NombretextBox.Focus();
+                return;
+            }
+            if (SOcomboBox.Text == "")
+            {
+                errorProvider.SetError(SOcomboBox, "Ingrese el sistema operativo");
+                SOcomboBox.Focus();
+                return;
+            }
+            if (MarcatextBox.Text == "")
+            {
+                errorProvider.SetError(MarcatextBox, "Ingrese la marca de su celular");
+                MarcatextBox.Focus();
+                return;
+            }
+            if (CantidadtextBox.Text == "")
+            {
+                errorProvider.SetError(CantidadtextBox, "Ingrese la cantidad");
+                CantidadtextBox.Focus();
+                return;
+            }
         }
         private void Salirbutton_Click(object sender, EventArgs e)
         {
@@ -69,11 +84,16 @@ namespace JeanCarlosCortes
             formulario.Show();
         }
 
-        private void Detallesbutton_Click(object sender, EventArgs e)
+        private void Nuevobutton_Click(object sender, EventArgs e)
         {
-            Detalles formulario = new Detalles();
-            this.Hide();
-            formulario.Show();
+            NombretextBox.Text = "";
+            SOcomboBox.Text = "";
+            MarcatextBox.Text = "";
+            CantidadtextBox.Clear();
+            PreciotextBox.Clear();
+            SubtotaltextBox.Clear();
+            ImpuestotextBox.Clear();
+            TotaltextBox.Clear();
         }
     }
 }
